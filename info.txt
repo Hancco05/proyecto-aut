@@ -1,0 +1,5 @@
+automatizador/
+│
+├── automatizador.py       # Todo el código aquí
+├── requirements.txt       # Librerías necesarias
+└── input/                 # Aquí pondrás tus archivos Excel
