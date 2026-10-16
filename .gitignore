@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+output/
+input/*.xlsx
+input/*.csv
+input/*.docx
+input/*.pdf
