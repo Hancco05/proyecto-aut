@@ -1,5 +1,32 @@
 automatizador/
 │
-├── automatizador.py       # Todo el código aquí
-├── requirements.txt       # Librerías necesarias
-└── input/                 # Aquí pondrás tus archivos Excel
+├── src/
+│   ├── __init__.py
+│   ├── main.py                    # Punto de entrada
+│   │
+│   ├── core/                      # Lógica de conversión
+│   │   ├── __init__.py
+│   │   ├── excel_handler.py
+│   │   ├── word_handler.py
+│   │   ├── csv_handler.py
+│   │   └── pdf_handler.py
+│   │
+│   ├── ui/                        # Interfaz
+│   │   ├── __init__.py
+│   │   └── menu.py
+│   │
+│   └── utils/                     # Utilidades
+│       ├── __init__.py
+│       ├── logger.py
+│       └── paths.py
+│
+├── config/
+│   └── settings.json              # Configuración
+│
+├── input/                         # Archivos de entrada
+├── output/                        # Archivos generados
+├── logs/                          # Historial de ejecuciones
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
