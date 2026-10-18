@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['automatizador.py'],
-    pathex=[],
+    ['src/main.py'],
+    pathex=['src'],
     binaries=[],
-    datas=[],
+    datas=[('config', 'config')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
