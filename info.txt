@@ -1,6 +1,5 @@
 automatizador/
 │
-
 ├── src/
 │   ├── __init__.py
 │   ├── main.py                    # Punto de entrada
