@@ -1,33 +1,31 @@
-automatizador
+automatizador/
 │
 ├── src/
-│   ├── __init__.py
-│   ├── main.py                    # Punto de entrada
-│   │
-│   ├── core/                      # Lógica de conversión
-│   │   ├── __init__.py
-│   │   ├── excel_handler.py
-│   │   ├── word_handler.py
-│   │   ├── csv_handler.py
-│   │   └── pdf_handler.py
-│   │
-│   ├── ui/                        # Interfaz
-│   │   ├── __init__.py
-│   │   └── menu.py
-│   │
-│   └── utils/                     # Utilidades
+│   └── mi_automatizador/              # ⬅Renombramos "src" internamente
 │       ├── __init__.py
-│       ├── logger.py
-│       └── paths.py
+│       ├── __main__.py                # ⬅NUEVO: permite "python -m mi_automatizador"
+│       ├── cli.py                     # ⬅NUEVO: CLI con flags
+│       ├── core/
+│       │   ├── __init__.py
+│       │   ├── common.py
+│       │   ├── csv_handler.py
+│       │   ├── word_handler.py
+│       │   └── pdf_handler.py
+│       ├── ui/
+│       │   ├── __init__.py
+│       │   └── menu.py
+│       └── utils/
+│           ├── __init__.py
+│           ├── logger.py
+│           └── paths.py
 │
 ├── config/
-│   └── settings.json              # Configuración
+│   └── settings.json
+├── input/
+├── output/
+├── logs/
 │
-├── input/                         # Archivos de entrada
-├── output/                        # Archivos generados
-├── logs/                          # Historial de ejecuciones
-│
+├── pyproject.toml                      NUEVO: metadatos del paquete
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-
