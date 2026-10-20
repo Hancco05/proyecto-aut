@@ -1,7 +1,7 @@
 automatizador/
 │
 ├── src/
-│   └── mi_automatizador/              # ⬅Renombramos "src" internamente
+│   └── mi_automatizador/              ⬅Renombramos "src" internamente
 │       ├── __init__.py
 │       ├── __main__.py                # ⬅NUEVO: permite "python -m mi_automatizador"
 │       ├── cli.py                     # ⬅NUEVO: CLI con flags
