@@ -1,4 +1,4 @@
-automatizador/
+automatizador/ 
 │
 ├── src/
 │   └── mi_automatizador/              ⬅Renombramos "src" internamente
