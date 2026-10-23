@@ -28,4 +28,4 @@ automatizador/
 ├── pyproject.toml                      NUEVO: metadatos del paquete
 ├── requirements.txt
 ├── .gitignore
-└── README.md 
+└── README.md
