@@ -19,6 +19,17 @@ automatizador/
 │           ├── logger.py
 │           └── paths.py
 │
+├── tests/                             
+│   ├── __init__.py
+│   ├── conftest.py   Fixtures compartidas
+│   ├── unit/
+│   │   ├── __init__.py
+│   │   ├── test_csv_handler.py
+│   │   ├── test_word_handler.py
+│   │   └── test_paths.py
+│   └── integration/
+│       ├── __init__.py
+│       └── test_cli.py
 ├── config/
 │   └── settings.json
 ├── input/
