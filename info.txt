@@ -31,7 +31,7 @@ automatizador/
 │       ├── __init__.py
 │       └── test_cli.py
 ├── config/
-│   └── settings.json
+│   └── settings.json 
 ├── input/
 ├── output/
 ├── logs/
