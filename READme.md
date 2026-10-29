@@ -9,4 +9,4 @@ Windows (para conversión a PDF, requiere Excel instalado)
 
 Instalación
 
-pip install -r requirements.txt
+pip install -r requirements.txtt
