@@ -1,5 +1,6 @@
 Automatizador de Archivos
 
+
 Convierte archivos Excel a PDF, Word y CSV de forma automática.
 
 Requisitos
@@ -9,4 +10,4 @@ Windows (para conversión a PDF, requiere Excel instalado)
 
 Instalación
 
-pip install -r requirements.txtt
+pip install -r requirements.txt
