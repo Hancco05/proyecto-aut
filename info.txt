@@ -1,45 +1,23 @@
-automatizador/ 
+automatizador/
 │
 ├── src/
-│   └── mi_automatizador/              ⬅Renombramos "src" internamente
-│       ├── __init__.py
-│       ├── __main__.py                NUEVO: permite "python -m mi_automatizador"
-│       ├── cli.py                     NUEVO: CLI con flags
-│       ├── core/
+│   └── mi_automatizador/
+│       ├── ...
+│       ├── updater/                   NUEVO
 │       │   ├── __init__.py
-│       │   ├── common.py
-│       │   ├── csv_handler.py
-│       │   ├── word_handler.py
-│       │   └── pdf_handler.py
-│       ├── ui/
-│       │   ├── __init__.py
-│       │   └── menu.py
-│       └── utils/
-│           ├── __init__.py
-│           ├── logger.py
-│           └── paths.py
+│       │   ├── checker.py             Consulta si hay versión nueva
+│       │   ├── downloader.py          Descarga el .zip nuevo
+│       │   ├── installer.py           Lanza updater.exe
+│       │   └── updater_main.py        Programa separado que reemplaza
+│       │
+│       └── ...
 │
-├── tests/                             
-│   ├── __init__.py
-│   ├── conftest.py   Fixtures compartidas
-│   ├── unit/
-│   │   ├── __init__.py
-│   │   ├── test_csv_handler.py
-│   │   ├── test_word_handler.py
-│   │   └── test_paths.py
-│   └── integration/
-│       ├── __init__.py
-│       └── test_cli.py
 ├── config/
-│   └── settings.json 
-├── input/
-├── output/
-├── logs/
+│   ├── settings.json
+│   └── updater_config.json            NUEVO
 │
-├── pyproject.toml                      NUEVO: metadatos del paquete
-├── requirements.txt
-├── .gitignore
-└── README.md 
-
-project 3!
-finalizado
+├── releases/                          NUEVO: versiones publicadas
+│   ├── version.json                   Manifiesto
+│   └── mi_automatizador_v3.1.0.zip
+│
+└── ...
