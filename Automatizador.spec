@@ -1,12 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_submodules
+
+hiddenimports = []
+hiddenimports += collect_submodules('mi_automatizador')
 
 
 a = Analysis(
-    ['src/main.py'],
+    ['src/mi_automatizador/__main__.py'],
     pathex=['src'],
     binaries=[],
     datas=[('config', 'config')],
-    hiddenimports=[],
+    hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
