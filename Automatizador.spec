@@ -6,7 +6,7 @@ hiddenimports += collect_submodules('mi_automatizador')
 
 
 a = Analysis(
-    ['src/mi_automatizador/__main__.py'],
+    ['entry_point.py'],
     pathex=['src'],
     binaries=[],
     datas=[('config', 'config')],
