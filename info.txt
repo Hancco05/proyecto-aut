@@ -14,10 +14,10 @@ automatizador/
 │
 ├── config/
 │   ├── settings.json
-│   └── updater_config.json            NUEVO
+│   └── updater_config.json            
 │
-├── releases/                          NUEVO: versiones publicadas
-│   ├── version.json                   Manifiesto
+├── releases/                          NUEVO versiones publicadas
+│   ├── version.json                   
 │   └── mi_automatizador_v3.1.0.zip
 │
-└── ...
+└── ... 
