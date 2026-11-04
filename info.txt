@@ -20,4 +20,6 @@ automatizador/
 │   ├── version.json                   
 │   └── mi_automatizador_v3.1.0.zip
 │
-└── ... 
+└── avances!
+
+siguiente!
