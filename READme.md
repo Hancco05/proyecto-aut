@@ -2,7 +2,7 @@ Automatizador de Archivos
 
 Convierte archivos Excel a PDF, Word y CSV de forma automática.
 
-Requisitos
+-Requisitos
 
 Python 3.10+
 Windows (para conversión a PDF, requiere Excel instalado)
