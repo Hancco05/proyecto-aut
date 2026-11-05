@@ -1,0 +1,82 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"   # Se dispara con tags tipo v3.1.0
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Correr tests (no publicar si fallan)
+        run: pytest
+
+      - name: Compilar Automatizador.exe
+        run: |
+          pyinstaller --onefile --console --name "Automatizador" --paths src --add-data "config;config" --collect-submodules mi_automatizador entry_point.py
+
+      - name: Compilar updater.exe
+        run: |
+          pyinstaller --onefile --console --name "updater" --paths src src\mi_automatizador\updater\updater_main.py
+
+      - name: Crear ZIP
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          Compress-Archive -Path dist\Automatizador.exe, dist\updater.exe -DestinationPath "releases\mi_automatizador_v$version.zip" -Force
+          Write-Host "ZIP creado: mi_automatizador_v$version.zip"
+
+      - name: Calcular hash del ZIP
+        id: hash
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          $zipPath = "releases\mi_automatizador_v$version.zip"
+          $hash = (Get-FileHash $zipPath -Algorithm SHA256).Hash.ToLower()
+          echo "sha256=$hash" >> $env:GITHUB_OUTPUT
+          echo "Hash: $hash"
+
+      - name: Crear GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: releases/mi_automatizador_*.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+
+      - name: Actualizar version.json
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          $manifest = @{
+            latest_version = $version
+            download_url = "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/mi_automatizador_v$version.zip"
+            release_notes = "Ver notas del release en GitHub"
+            min_version_required = "3.0.0"
+            sha256 = "${{ steps.hash.outputs.sha256 }}"
+          }
+          $manifest | ConvertTo-Json | Set-Content -Encoding utf8 releases\version.json
+
+      - name: Commit version.json actualizado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add releases\version.json
+          git commit -m "chore: actualizar version.json a ${{ github.ref_name }}"
+          git push
