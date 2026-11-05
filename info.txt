@@ -46,3 +46,19 @@ Los usuarios abren Automatizador.exe
   ├─ Ve versión nueva
   ├─ Descarga el .zip desde GitHub Releases
   └─ Se actualiza solo
+
+
+  automatizador/
+│
+├── .github/
+│   └── workflows/
+│       ├── tests.yml               # ⬅️ NUEVO: corre tests en cada push
+│       ├── build.yml               # ⬅️ NUEVO: compila al hacer tag
+│       └── update_manifest.yml     # ⬅️ NUEVO: actualiza version.json
+│
+├── releases/
+│   └── version.json                # ← Ahora se actualiza solo
+│
+├── entry_point.py
+├── pyproject.toml
+└── ...
