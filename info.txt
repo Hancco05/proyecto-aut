@@ -21,3 +21,28 @@ automatizador/
 │   └── mi_automatizador_v3.1.0.zip
 │
 └── avances!
+
+
+Tú haces: git tag v3.1.0 && git push --tags
+                ↓
+GitHub Actions detecta el tag
+                ↓
+Ejecuta build.yml:
+  ├─ Instala Python
+  ├─ Instala dependencias
+  ├─ Corre los tests (pytest)
+  ├─ Compila Automatizador.exe y updater.exe
+  ├─ Crea el .zip
+  └─ Sube el .zip a GitHub Releases
+                ↓
+Ejecuta update_manifest.yml:
+  ├─ Calcula el hash del .zip
+  ├─ Genera el nuevo version.json
+  └─ Hace commit de vuelta al repo
+                ↓
+Los usuarios abren Automatizador.exe
+                ↓
+  ├─ Lee version.json desde raw.githubusercontent.com
+  ├─ Ve versión nueva
+  ├─ Descarga el .zip desde GitHub Releases
+  └─ Se actualiza solo
