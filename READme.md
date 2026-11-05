@@ -10,3 +10,5 @@ Windows (para conversión a PDF, requiere Excel instalado)
 Instalación
 
 pip install -r requirements.txt
+
+standby
