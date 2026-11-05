@@ -12,5 +12,3 @@ Instalación
 pip install -r requirements.txt
 
 standby project
-
-analisis de errores!
